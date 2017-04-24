@@ -13,7 +13,7 @@ import pytest
 from contextlib import contextmanager
 from click.testing import CliRunner
 
-from modint import modint
+from modint import ChineseRemainderConstructor
 from modint import cli
 
 
@@ -26,11 +26,14 @@ def response():
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
 
 
-def test_content(response):
+def test_modint():
     """Sample pytest test function with the pytest fixture as an argument.
     """
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
+    cr = ChineseRemainderConstructor([3,5])
+    assert cr.rem([1,1]) == 1
+
 def test_command_line_interface():
     runner = CliRunner()
     result = runner.invoke(cli.main)
