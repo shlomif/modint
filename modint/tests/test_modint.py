@@ -10,8 +10,6 @@ Tests for `modint` module.
 
 import pytest
 
-from contextlib import contextmanager
-
 from modint import ChineseRemainderConstructor
 
 
@@ -29,5 +27,8 @@ def test_modint():
     """
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
-    cr = ChineseRemainderConstructor([3,5])
-    assert cr.rem([1,1]) == 1
+    cr = ChineseRemainderConstructor([3, 5])
+    assert cr.rem([1, 1]) == 1
+
+    cr = ChineseRemainderConstructor([2, 5])
+    assert cr.rem([1, 0]) == 5
