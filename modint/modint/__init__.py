@@ -14,14 +14,16 @@ class ChineseRemainderConstructor:
             p *= x
         self._prod = p
         self._inverses = [p//x for x in bases]
+        self._muls = [inv * self.mul_inv(inv, base) for base, inv
+                      in zip(self._bases, self._inverses)]
 
     def rem(self, mods):
         """Accepts a list of corresponding modulos for the bases and
         returns the accumulated modulo.
         """
         ret = 0
-        for base, inv, mod in zip(self._bases, self._inverses, mods):
-            ret += mod * inv * self.mul_inv(inv, base)
+        for mul, mod in zip(self._muls, mods):
+            ret += mul * mod
         return ret % self._prod
 
     def mul_inv(self, a, b):
@@ -41,4 +43,3 @@ class ChineseRemainderConstructor:
 def chinese_remainder(n, mods):
     """Convenience method that calculates the chinese remainder directly."""
     return ChineseRemainderConstructor(n).rem(mods)
-

@@ -19,6 +19,7 @@ def response():
     See more at: http://doc.pytest.org/en/latest/fixture.html
     """
 
+
 def test_modint():
     """Sample pytest test function with the pytest fixture as an argument.
     """
