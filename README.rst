@@ -28,7 +28,7 @@ Python implementation of the Chinese Remainder algorithm
 Features
 --------
 
-A usable implementation of the Chomese Remainder algorithm (see
+A usable implementation of the Chinese Remainder algorithm (see
 https://en.wikipedia.org/wiki/Chinese_remainder_theorem ) under the permissive
 MIT/Expat licence. Written because none other similarly-licensed ones
 could be found.
