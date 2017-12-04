@@ -36,3 +36,9 @@ class ChineseRemainderConstructor:
             a, b = b, mod
             x0, x1 = x1 - div * x0, x0
         return (x1 if x1 >= 0 else x1 + initial_b)
+
+
+def chinese_remainder(n, mods):
+    """Convenience method that calculates the chinese remainder directly."""
+    return ChineseRemainderConstructor(n).rem(mods)
+
