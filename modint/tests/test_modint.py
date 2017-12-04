@@ -32,3 +32,5 @@ def test_modint():
     assert cr.rem([1, 0]) == 5
 
     assert chinese_remainder([2, 5], [1, 0]) == 5
+
+    assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
