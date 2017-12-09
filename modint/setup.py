@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='modint',
-    version='0.1.0',
+    version='0.2.0',
     description="Python implementation of the Chinese Remainder algorithm",
     long_description=readme + '\n\n' + history,
     author="Shlomi Fish",
