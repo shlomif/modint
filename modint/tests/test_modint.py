@@ -30,6 +30,7 @@ def test_modint():
 
     cr = ChineseRemainderConstructor([2, 5])
     assert cr.rem([1, 0]) == 5
+    assert cr.rem([0, 3]) == 8
 
     assert chinese_remainder([2, 5], [1, 0]) == 5
 

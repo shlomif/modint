@@ -6,8 +6,19 @@ __version__ = '0.1.0'
 
 
 class ChineseRemainderConstructor:
+    """Synopsis:
+
+from modint import ChineseRemainderConstructor, chinese_remainder
+
+cr = ChineseRemainderConstructor([2, 5])
+assert cr.rem([1, 0]) == 5
+assert cr.rem([0, 3]) == 8
+
+# Convenience function
+assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
+    """
     def __init__(self, bases):
-        """Accepts a list of two integer bases."""
+        """Accepts a list of integer bases."""
         self._bases = bases
         p = 1
         for x in bases:
