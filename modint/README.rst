@@ -33,6 +33,10 @@ https://en.wikipedia.org/wiki/Chinese_remainder_theorem ) under the permissive
 MIT/Expat licence. Written because none other similarly-licensed ones
 could be found.
 
+What this does is given two-or-more pairwise coprime bases integers and their
+corresponding moduli, it finds an integer that yields these moduli for all the
+bases.
+
 Credits
 ---------
 
