@@ -37,6 +37,22 @@ What this does is given two-or-more pairwise coprime bases integers and their
 corresponding moduli, it finds an integer that yields these moduli for all the
 bases.
 
+Example
+-------
+
+Here is an example::
+
+    from modint import ChineseRemainderConstructor, chinese_remainder
+
+    cr = ChineseRemainderConstructor([2, 5])
+    # Because 5 % 2 == 1 and 5 % 5 == 0
+    assert cr.rem([1, 0]) == 5
+    # Because 8 % 2 == 0 and 8 % 5 == 3
+    assert cr.rem([0, 3]) == 8
+
+    # Convenience function
+    assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
+
 Credits
 ---------
 
