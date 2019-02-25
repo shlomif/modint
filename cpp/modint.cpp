@@ -10,7 +10,7 @@ __version__ = '0.1.0'
 
 namespace ModInt
 {
-template<class T> class ChineseRemainderConstructor
+template <class T> class ChineseRemainderConstructor
 {
     /*
     """Synopsis:
@@ -26,45 +26,52 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
     """
     */
 
-    private:
-        std::vector<T> bases, inverses, muls;
-        T prod;
+  private:
+    std::vector<T> bases, inverses, muls;
+    T prod;
 
-    public:
+  public:
     ChineseRemainderConstructor(std::vector<T> b)
     {
         // """Accepts a list of integer bases."""
         bases = b;
         T p = 1;
-        for (const auto x: bases){
+        for (const auto x : bases)
+        {
             p *= x;
         }
         prod = p;
-        for (const auto x: bases){
-            inverses.push_back(p/x);
+        for (const auto x : bases)
+        {
+            inverses.push_back(p / x);
         }
-        for (size_t i = 0; i < b.size; ++i) {
+        for (size_t i = 0; i < b.size; ++i)
+        {
             const auto inv = inverses[i];
-        muls.push_back(inv * mul_inv(inv, b[i]));
+            muls.push_back(inv * mul_inv(inv, b[i]));
         }
     }
 
-    T rem(const std::vector<T> mods) {
+    T rem(const std::vector<T> mods)
+    {
         /*
         """Accepts a list of corresponding modulos for the bases and
         returns the accumulated modulo.
         """
         */
         T ret = 0;
-        for (size_t i = 0; i < muls.size; ++i) {
+        for (size_t i = 0; i < muls.size; ++i)
+        {
             ret += muls[i] * mods[i];
         }
         return ret % prod;
     }
 
-    private:
-    static T mul_inv(T a, T b) {
-        /*        """Internal method that implements Euclid's modified gcd algorithm.
+  private:
+    static T mul_inv(T a, T b)
+    {
+        /*        """Internal method that implements Euclid's modified gcd
+        algorithm.
         """
         */
         const auto initial_b = b;
@@ -88,11 +95,10 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
     }
 };
 
-
-template<class T> T chinese_remainder(std::vector<T> n, std::vector<T> mods)
+template <class T> T chinese_remainder(std::vector<T> n, std::vector<T> mods)
 {
     /*"""Convenience method that calculates the chinese remainder directly."""
      * */
     return ChineseRemainderConstructor<T>(n).rem(mods);
 }
-};
+}; // namespace ModInt
