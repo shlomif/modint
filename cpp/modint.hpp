@@ -45,7 +45,7 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
         {
             inverses.push_back(p / x);
         }
-        for (size_t i = 0; i < b.size; ++i)
+        for (size_t i = 0; i < b.size(); ++i)
         {
             const auto inv = inverses[i];
             muls.push_back(inv * mul_inv(inv, b[i]));
@@ -60,7 +60,7 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
         """
         */
         T ret = 0;
-        for (size_t i = 0; i < muls.size; ++i)
+        for (size_t i = 0; i < muls.size(); ++i)
         {
             ret += muls[i] * mods[i];
         }

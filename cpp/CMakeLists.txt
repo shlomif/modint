@@ -7,4 +7,4 @@ project(modint)
 #add_definitions('-Wall')
 #add_definitions('-std=c++11')
 
-add_library(${PROJECT_NAME} ${PROJECT_NAME}.cpp)
+add_executable(${PROJECT_NAME}-test main.cpp)
