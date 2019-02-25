@@ -8,7 +8,9 @@ __version__ = '0.1.0'
 
 #include <vector>
 
-template<class T> class ChineseRemainderConstructor<T>
+namespace ModInt
+{
+template<class T> class ChineseRemainderConstructor
 {
     /*
     """Synopsis:
@@ -43,7 +45,7 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
         }
         for (size_t i = 0; i < b.size; ++i) {
             const auto inv = inverses[i];
-        muls.push_back(inv * self.mul_inv(inv, b[i]))
+        muls.push_back(inv * mul_inv(inv, b[i]));
         }
     }
 
@@ -61,7 +63,7 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
     }
 
     private:
-    T mul_inv(T a, T b) {
+    static T mul_inv(T a, T b) {
         /*        """Internal method that implements Euclid's modified gcd algorithm.
         """
         */
@@ -84,12 +86,13 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
         }
         return (x1 >= 0 ? x1 : x1 + initial_b);
     }
-}
+};
 
 
 template<class T> T chinese_remainder(std::vector<T> n, std::vector<T> mods)
 {
     /*"""Convenience method that calculates the chinese remainder directly."""
      * */
-    return ChineseRemainderConstructor(n).rem(mods);
+    return ChineseRemainderConstructor<T>(n).rem(mods);
 }
+};
