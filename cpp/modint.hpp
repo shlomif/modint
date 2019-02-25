@@ -31,7 +31,7 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
     T prod;
 
   public:
-    ChineseRemainderConstructor(std::vector<T> b)
+    ChineseRemainderConstructor(const std::vector<T> b)
     {
         // """Accepts a list of integer bases."""
         bases = b;
@@ -52,7 +52,7 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
         }
     }
 
-    T rem(const std::vector<T> mods)
+    const T rem(const std::vector<T> mods) const
     {
         /*
         """Accepts a list of corresponding modulos for the bases and
@@ -95,7 +95,8 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
     }
 };
 
-template <class T> T chinese_remainder(std::vector<T> n, std::vector<T> mods)
+template <class T>
+const T chinese_remainder(const std::vector<T> n, const std::vector<T> mods)
 {
     /*"""Convenience method that calculates the chinese remainder directly."""
      * */
