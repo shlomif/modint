@@ -1,16 +1,16 @@
-# Config file for automatic testing at travis-ci.org
-# This file will be regenerated if you run travis_pypi_setup.py
-
+install:
+- pip install -U pip
+- pip install cookiecutter
+- pip --version
+- ( cd modint && cat dest/requirements.txt )
+- ( cd modint && pip install -r requirements.txt && pip install . )
+- ( cd modint && pip install -r requirements_dev.txt )
 language: python
-python: 3.5
-
-env:
-  - TOXENV=py35
-  - TOXENV=py34
-  - TOXENV=py27
-
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox
-
-# command to run tests, e.g. python setup.py test
-script: "cd modint && tox -e ${TOXENV}"
+python:
+- '3.5'
+- '3.6'
+- '3.7'
+- '3.8'
+- pypy3
+script:
+- ( cd modint && py.test --cov zenfilter --cov-report term-missing tests/ )
