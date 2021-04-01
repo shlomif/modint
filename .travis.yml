@@ -14,3 +14,4 @@ python:
 - pypy3
 script:
 - ( cd modint && py.test --cov zenfilter --cov-report term-missing tests/ )
+- ( cd modint && py.test )
