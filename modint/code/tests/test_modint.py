@@ -11,6 +11,7 @@ Tests for `modint` module.
 import pytest
 
 from modint import ChineseRemainderConstructor, chinese_remainder
+from modint import invmod
 
 
 @pytest.fixture
@@ -35,3 +36,7 @@ def test_modint():
     assert chinese_remainder([2, 5], [1, 0]) == 5
 
     assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
+
+    for base in [2, 3, 5, 7]:
+        for mod in range(1, base):
+            assert invmod(base=base, mod=mod) * mod % base == 1

@@ -52,5 +52,18 @@ assert chinese_remainder([2, 3, 7], [1, 2, 3]) == 17
 
 
 def chinese_remainder(n, mods):
-    """Convenience method that calculates the chinese remainder directly."""
+    """Convenience function that calculates the chinese remainder directly."""
     return ChineseRemainderConstructor(n).rem(mods)
+
+
+def invmod(base, mod):
+    """
+    invmod(base=base, mod=mod) * mod % base == 1
+
+    Modular multiplicative Inverse convenience function. See:
+
+    https://stackoverflow.com/questions/4798654/
+
+    (Added in v0.4.0)
+    """
+    return chinese_remainder([base, mod], [1, 0]) // mod
