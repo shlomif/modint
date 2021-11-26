@@ -1,0 +1,26 @@
+0.2.3 (2018-05-02)
+------------------
+
+* Per PEP 527 use tar.gz again.
+
+0.2.2 (2018-05-02)
+------------------
+
+* Convert to tar.xz.
+
+0.2.1 (2018-05-02)
+------------------
+
+* Fix tests.
+
+0.2.0 (2017-12-09)
+------------------
+
+* Better documentation with synopses and examples.
+
+* Add Travis-CI.
+
+0.1.0 (2017-03-16)
+------------------
+
+* First release on PyPI.
