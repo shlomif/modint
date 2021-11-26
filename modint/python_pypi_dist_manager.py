@@ -81,8 +81,8 @@ obj = Derived(
         "Python implementation of the "
         "Chinese Remainder algorithm"
     ),
-    release_date="2021-11-11",
-    project_year="2020",
+    release_date="2021-11-26",
+    project_year="2018",
     aur_email="shlomif@cpan.org",
     project_email="shlomif@cpan.org",
     full_name="Shlomi Fish",
